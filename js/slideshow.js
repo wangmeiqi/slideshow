@@ -30,7 +30,7 @@ Banner.prototype={
     clearInterval(this.timer);
     this.timer=setInterval(function () {
       me.autoMove();
-    },1800);
+    },1000);
     //鼠标移入移出
     this.overout();
     //按钮手动切换
