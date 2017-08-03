@@ -71,9 +71,10 @@ Banner.prototype={
       this.n=0;
       this.boxInner.style['transition-duration']=0+'ms';
       this.boxInner.style['left']=-this.n*1000+ 'px';
-      return;
     };
     this.n++;
+    var top = this.boxInner.clientTop;
+
     //console.log(this.n);
     this.boxInner.style['transition-duration']=1000+'ms';
     this.boxInner.style['left']=-this.n*1000 + 'px';
@@ -121,10 +122,14 @@ Banner.prototype={
     this.btnLeft.onclick=function () {
       if(me.n<=0){
         me.n=me.aImg.length-1;
+        me.boxInner.style['transition-duration']=0+'ms';
         me.boxInner.style['left']=-me.n*1000 + 'px';
       }
       me.n--;
+      var top = me.boxInner.clientTop;
       me.boxInner.style['left']=-me.n*1000 + 'px';
+      me.boxInner.style['transition-property']='left';
+      me.boxInner.style['transition-duration']=1000+'ms';
       me.bannerTip();
     };
     this.btnRight.onclick=function () {
