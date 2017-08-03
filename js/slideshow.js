@@ -69,15 +69,17 @@ Banner.prototype={
   autoMove:function autoMove() {
     if(this.n>=this.aImg.length-1){
       this.n=0;
+      this.boxInner.style['transition-duration']=0+'ms';
       this.boxInner.style['left']=-this.n*1000+ 'px';
+      return;
     };
     this.n++;
     //console.log(this.n);
-    this.boxInner.style['left']=-this.n*1000 + 'px';
     this.boxInner.style['transition-duration']=1000+'ms';
+    this.boxInner.style['left']=-this.n*1000 + 'px';
     this.boxInner.style['transition-property']='left';
 
-    //console.log(this.boxInner.style.left);
+    console.log(this.boxInner.style.left);
     this.bannerTip();
   },
   //按钮切换
